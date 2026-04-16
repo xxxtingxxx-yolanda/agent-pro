@@ -166,18 +166,18 @@
   .card-sheen::before {
     content: "";
     position: absolute;
-    inset: -130% auto -130% -38%;
-    width: 28%;
+    inset: -120% auto -120% -35%;
+    width: 30%;
     background: linear-gradient(
       110deg,
       transparent 0%,
-      rgba(255, 255, 255, 0.35) 45%,
+      rgba(255, 255, 255, 0.42) 45%,
       transparent 100%
     );
-    transform: translateX(-300%) rotate(12deg);
-    transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateX(-280%) rotate(12deg);
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
     pointer-events: none;
-    z-index: 1;
+    z-index: 15;
   }
 
   .card-sheen::after {
@@ -196,7 +196,7 @@
   }
 
   .card-sheen:hover::before {
-    transform: translateX(430%) rotate(12deg);
+    transform: translateX(420%) rotate(12deg);
   }
 
   .card-sheen:hover::after {

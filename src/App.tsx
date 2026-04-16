@@ -61,6 +61,15 @@ const repoUrl = "https://github.com/xxxtingxxx-yolanda/agent-full-pro";
 export default function App() {
   const [secondPageArriving, setSecondPageArriving] = React.useState(false);
   const riseTimerRef = React.useRef<number | null>(null);
+  const detailsSectionId = "details";
+  const detailsFocusId = "details-focus";
+
+  React.useEffect(() => {
+    if (window.location.hash) {
+      const cleanUrl = `${window.location.pathname}${window.location.search}`;
+      window.history.replaceState(null, "", cleanUrl);
+    }
+  }, []);
 
   React.useEffect(() => {
     return () => {
@@ -71,12 +80,12 @@ export default function App() {
   }, []);
 
   const handleDetailJump = React.useCallback(() => {
-    const section = document.getElementById("second-page");
+    const section = document.getElementById(detailsSectionId);
     if (!section) {
       return;
     }
 
-    const targetNode = document.getElementById("second-page-focus") ?? section;
+    const targetNode = document.getElementById(detailsFocusId) ?? section;
     const rect = targetNode.getBoundingClientRect();
     const blockTop = window.scrollY + rect.top;
     const targetTop = Math.max(0, blockTop + rect.height / 2 - window.innerHeight / 2);
@@ -121,7 +130,7 @@ export default function App() {
     };
 
     window.requestAnimationFrame(step);
-  }, []);
+  }, [detailsFocusId, detailsSectionId]);
 
   return (
     <div className="min-h-screen selection:bg-white selection:text-black">
@@ -208,14 +217,14 @@ export default function App() {
       </Section>
 
       {/* 2. Pain Points */}
-      <Section id="second-page" className="relative z-10">
+      <Section id={detailsSectionId} className="relative z-10">
         {/* Tech Decor */}
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
           <div className="absolute top-10 left-10 font-mono text-[10px] text-blue-500/40 uppercase tracking-widest">Data_Stream_v2.0</div>
           <div className="absolute bottom-10 right-10 font-mono text-[10px] text-purple-500/40 uppercase tracking-widest">Neural_Sync_Active</div>
         </div>
 
-        <div id="second-page-focus" className={secondPageArriving ? "section-rise-active" : ""}>
+        <div id={detailsFocusId} className={secondPageArriving ? "section-rise-active" : ""}>
           <h2 className="text-5xl md:text-7xl font-bold mb-32 text-center tracking-tight">
             为什么 AI 仍无法完成完整交付？
           </h2>
