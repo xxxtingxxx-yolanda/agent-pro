@@ -85,17 +85,77 @@
   }
 
   .chip-hover {
+    position: relative;
+    overflow: hidden;
     transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
       background-color 0.35s ease,
       color 0.35s ease,
       border-color 0.35s ease;
   }
 
+  .chip-hover::before {
+    content: "";
+    position: absolute;
+    inset: -140% auto -140% -40%;
+    width: 28%;
+    background: linear-gradient(
+      110deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.4) 45%,
+      transparent 100%
+    );
+    transform: translateX(-320%) rotate(12deg);
+    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+  }
+
   .chip-hover:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px) scale(1.02);
     color: #fff;
     border-color: rgba(255, 255, 255, 0.28);
     background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
+  }
+
+  .chip-hover:hover::before {
+    transform: translateX(430%) rotate(12deg);
+  }
+
+  .interactive-panel {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.35s ease,
+      background-color 0.35s ease;
+  }
+
+  .interactive-panel::before {
+    content: "";
+    position: absolute;
+    inset: -120% auto -120% -35%;
+    width: 30%;
+    background: linear-gradient(
+      110deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.4) 45%,
+      transparent 100%
+    );
+    transform: translateX(-300%) rotate(12deg);
+    transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+  }
+
+  .interactive-panel:hover {
+    transform: translateY(-3px) scale(1.01);
+    border-color: rgba(255, 255, 255, 0.28);
+    background-color: rgba(255, 255, 255, 0.07);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.34);
+  }
+
+  .interactive-panel:hover::before {
+    transform: translateX(420%) rotate(12deg);
   }
 
   .card-sheen {
@@ -134,6 +194,9 @@
   .interactive-cta,
   .interactive-cta::before,
   .chip-hover,
+  .chip-hover::before,
+  .interactive-panel,
+  .interactive-panel::before,
   .card-sheen::after,
   .section-rise-active {
     transition: none !important;

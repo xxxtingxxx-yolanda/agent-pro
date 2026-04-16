@@ -380,7 +380,7 @@ export default function App() {
         </div>
         
         <div className="mt-32 text-center">
-          <div className="inline-block px-12 py-5 bg-apple-gray/60 border border-white/5 rounded-full text-white font-semibold text-sm tracking-wide backdrop-blur-md">
+          <div className="interactive-panel inline-block px-12 py-5 bg-apple-gray/60 border border-white/5 rounded-full text-white font-semibold text-sm tracking-wide backdrop-blur-md">
             流程是状态机，而不是线性序列
           </div>
         </div>
@@ -418,7 +418,7 @@ export default function App() {
                   <motion.div
                     whileHover={{ scale: 1.02, borderColor: "rgba(255, 255, 255, 0.34)", boxShadow: "0 18px 38px rgba(0, 0, 0, 0.34)" }}
                     transition={{ type: "spring", stiffness: 240, damping: 20 }}
-                    className="bg-apple-gray/60 backdrop-blur-3xl border border-white/10 px-12 py-6 rounded-3xl text-white font-semibold text-xl flex items-center gap-6 transition-all duration-500"
+                    className="interactive-panel bg-apple-gray/60 backdrop-blur-3xl border border-white/10 px-12 py-6 rounded-3xl text-white font-semibold text-xl flex items-center gap-6 transition-all duration-500"
                   >
                     <CheckCircle2 className="w-6 h-6 text-white" />
                     {step}
@@ -451,7 +451,7 @@ export default function App() {
           ))}
         </div>
         <div className="mt-24 flex justify-center">
-          <div className="flex items-center gap-5 bg-white/5 px-12 py-6 rounded-full border border-white/10 backdrop-blur-md">
+          <div className="interactive-panel flex items-center gap-5 bg-white/5 px-12 py-6 rounded-full border border-white/10 backdrop-blur-md">
             <LineChart className="text-white w-7 h-7" />
             <span className="text-lg font-semibold tracking-tight">过程控制 {'>'} 偶然成功</span>
           </div>
